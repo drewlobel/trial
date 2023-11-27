@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    var script = document.createElement("script");
+    script.src = "p/preview-protocol.js";
+    script.defer = true;
+    script.async = true;
+    (document.body || document.documentElement).appendChild(script);
+  })();
+  const isIFramePreview = window.top !== window.self;
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "p/chrome-devtool/protocol/index.js";
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+  document.currentScript.remove();
+</script>
+    <link rel="shortcut icon" id="dynamic-favicon" href="favicon.png">
+    <title id="dynamic-title">Classes</title>
+	<link rel="canonical" href="http://ywm3mw-8080.csb.app/algebra.html" />
+  <script src="scripts/index.js"></script>
+  <script src="h/mathematics.js"></script>
+  <script src="h/geography.js"></script>
+    <!-- Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moon's formation: Scientists say a giant impact blasted the raw material for the moon off the primitive molten Earth and into orbit, forming the moon.">
+    <meta name="keywords" content="Computer Science, Technology, Photography, Nature, Tech Support, Tech Help, Local Tech Support">
+    <!-- Site Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Main Site Scripts -->
+    <script src="scripts/index.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="1237c86ba0.js" ></script>
+    <script src="scripts/calculator.js"> </script>
+  </head>
+  <body>
+<!-- Nav Bar Start-->
+<div class="fixed-nav-bar">
+  <a class="logo" href="index.html"><img id="INImg" src="main.png"></a>
+    <div class="fixed-nav-bar-right">
+        <a class="navbar-link" href="algebra.html"><i class="fa-solid fa-gamepad navbar-icon"></i>Games</a>      
+        <a class="navbar-link" href="news.html"><span class="material-symbols-outlined weird-icon">apps</span>Apps</a>
+        <a class="navbar-link" href="tabs.html"><i class="fa-solid fa-table navbar-icon"></i>Tabs</a>
+        <a class="navbar-link" href="settings.html"><i class="fa-solid fa-gear navbar-icon settings-icon"></i>Settings</a>
+     </div></div></div></div>
+  <!-- Nav Bar End-->
+    <div class="input-container">
+      <input type="text" id="searchbarbottom" onkeyup="search_game()" placeholder="Search">
+      <select id="category" name="category" onchange="showImages()">
+        <option value="all">All Games</option>
+        <option value="2P">Multiplayer Games</option>
+        <option value="sports">Sports Games</option>
+        <option value="flash">Flash Games</option>
+        <option value="emu">Emulator Games</option>
+      </select>
+    </div>
+     <div class="pinned-apps">
+    </div>
+    <div class="container-apps">
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-WKJQ5QHQTJ');
+    </script>
+    <script src="scripts/main.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/settings.js"></script>
+        <script src="scripts/customIcon.js"></script>
+  </body>
+</html>
